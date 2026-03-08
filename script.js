@@ -2,7 +2,7 @@
 
 let player1 = "";
 let player2 = "";
-let currentPlayer = "X";
+let currentPlayer = "x";
 let boardStates = ["","","","","","","","",""];
 
 let message = document.querySelector(".message");
@@ -10,8 +10,8 @@ let board = document.getElementById("board");
 let cells = document.querySelectorAll(".cell");
 
 document.getElementById("submit").onclick = function () {
-	player1 = document.getElementById("player-1").value;
-	player2 = document.getElementById("player-2").value;
+	player1 = document.getElementById("player1").value;
+	player2 = document.getElementById("player2").value;
 
 	board.style.display = "grid";
 
@@ -24,12 +24,12 @@ cells.forEach((cell,index) => {
 		boardStates[index] = currentPlayer;
 		cell.innerText = currentPlayer;
 		if(checkWinner()){
-			let winner = currentPlayer === "X" ? player1 : player2;
+			let winner = currentPlayer === "x" ? player1 : player2;
 			message.innerText = `${winner} congratulations you won!`;
 			return;
 		}
-		currentPlayer = currentPlayer === "X" ? "O" : "X";
-		let next = currentPlayer === "X" ? player1 : player2;
+		currentPlayer = currentPlayer === "x" ? "o" : "x";
+		let next = currentPlayer === "x" ? player1 : player2;
 		message.innerText = `${next}, you're up`;
 	});
 });
